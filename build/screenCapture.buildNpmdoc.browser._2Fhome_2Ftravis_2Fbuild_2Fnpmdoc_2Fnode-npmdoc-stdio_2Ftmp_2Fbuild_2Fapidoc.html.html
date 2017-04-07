@@ -1,0 +1,1075 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/sgmonda/stdio">stdio (v0.2.7)</a>
+</h1>
+<h4>Standard input/output management with NodeJS</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stdio">module stdio</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stdio.getopt">
+            function <span class="apidocSignatureSpan">stdio.</span>getopt
+            <span class="apidocSignatureSpan">(config, helpTail, argv, testing)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stdio.progressBar">
+            function <span class="apidocSignatureSpan">stdio.</span>progressBar
+            <span class="apidocSignatureSpan">(max, increment)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stdio.question">
+            function <span class="apidocSignatureSpan">stdio.</span>question
+            <span class="apidocSignatureSpan">(question, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stdio.read">
+            function <span class="apidocSignatureSpan">stdio.</span>read
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stdio.readByLines">
+            function <span class="apidocSignatureSpan">stdio.</span>readByLines
+            <span class="apidocSignatureSpan">(lineProcessor, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stdio.</span>progress</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stdio.</span>reading</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stdio.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stdio.getopt">module stdio.getopt</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stdio.getopt.getopt">
+            function <span class="apidocSignatureSpan">stdio.</span>getopt
+            <span class="apidocSignatureSpan">(config, helpTail, argv, testing)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stdio.getopt.preProcessArguments">
+            function <span class="apidocSignatureSpan">stdio.getopt.</span>preProcessArguments
+            <span class="apidocSignatureSpan">(argv)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stdio.progress">module stdio.progress</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stdio.progress.progressBar">
+            function <span class="apidocSignatureSpan">stdio.progress.</span>progressBar
+            <span class="apidocSignatureSpan">(max, increment)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stdio.question">module stdio.question</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stdio.question.question">
+            function <span class="apidocSignatureSpan">stdio.</span>question
+            <span class="apidocSignatureSpan">(question, options, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stdio.reading">module stdio.reading</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stdio.reading.read">
+            function <span class="apidocSignatureSpan">stdio.reading.</span>read
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stdio.reading.readByLines">
+            function <span class="apidocSignatureSpan">stdio.reading.</span>readByLines
+            <span class="apidocSignatureSpan">(lineProcessor, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stdio.util">module stdio.util</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stdio.util.textDistance">
+            function <span class="apidocSignatureSpan">stdio.util.</span>textDistance
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stdio" id="apidoc.module.stdio">module stdio</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stdio.getopt" id="apidoc.element.stdio.getopt">
+        function <span class="apidocSignatureSpan">stdio.</span>getopt
+        <span class="apidocSignatureSpan">(config, helpTail, argv, testing)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getopt(config, helpTail, argv, testing) {
+
+	argv = argv || process.argv;
+	config = config || {};
+	var programName = argv[1].split('/').pop();
+
+	// Help option cannot be overrided
+	if (config.help) {
+		throw new Error('"--help" option is reserved for the automatic help message. You cannot override it when calling getopt().');
+	}
+
+	var usedKeys = {};
+	var key, option;
+	for (option in config) {
+
+		key = config[option].key;
+
+		if (!key) {
+			continue;
+		}
+
+		// Short options name has to be unique
+		if (usedKeys[key]) {
+			throw new Error('Short key "' + key + '" is repeated in getopt() config. You cannot use the same key for two options.');
+		}
+
+		// Multiple option is not compatible with args count
+		if (config[option].multiple &amp;&amp; ('args' in config[option])) {
+			throw new Error('"args" count cannot be specified for options marked with "multiple" flag.');
+		}
+		usedKeys[key] = true;
+	}
+
+	// Print help message when executing with --help or -h
+	if (argv.indexOf('--help') !== -1) {
+		printHelpMessage(config, helpTail, programName);
+		process.exit(0);
+	}
+
+	// Build de options/arguments map
+	var cmdOptions = extractArgumentsMap(argv, config);
+
+	// Check every mandatory option is specified
+	for (option in config) {
+		if (option === '_meta_') {
+			continue;
+		}
+		if (config[option].mandatory &amp;&amp; !(option in cmdOptions)) {
+			if (testing) {
+				return null;
+			}
+			console.log('Missing "%s" argument.\nTry "--help" for more information.', option);
+			process.exit(-1);
+		}
+		if (!(option in cmdOptions)) {
+			continue;
+		}
+
+		// Check all required arguments have been specified for each option
+		var requiredArgumentsCount = config[option].args;
+		var providedArgumentsCount = cmdOptions[option] === true ? 0 : (Array.isArray(cmdOptions[option]) ? cmdOptions[option].length :
+1);
+		if (requiredArgumentsCount &gt; 1 &amp;&amp; providedArgumentsCount !== requiredArgumentsCount) {
+			if (testing) {
+				return null;
+			}
+			console.log('Option "--%s" requires %d arguments, but %d were provided. Try "--help" for more information.', option, requiredArgumentsCount
+, providedArgumentsCount);
+			printHelpMessage(config, helpTail, programName);
+			process.exit(-1);
+		}
+	}
+
+	// Check expected positional arguments are provided
+	var providedArgs = 0;
+	if (Array.isArray(cmdOptions.args) &amp;&amp; cmdOptions.args.length &gt; 0) {
+		providedArgs = cmdOptions.args.length;
+	}
+	if (config._meta_ &amp;&amp; config._meta_.args &amp;&amp; providedArgs !== config._meta_.args) {
+		console.log('%d positional arguments (without option flag) are required, but %d have been provided.', config._meta_.args, providedArgs
+);
+		printHelpMessage(config, helpTail, programName);
+		process.exit(-1);
+	}
+	if (config._meta_ &amp;&amp; config._meta_.minArgs &amp;&amp; providedArgs &lt; config._meta_.minArgs) {
+		console.log('At least %d positional arguments (without option flag) are required, but %d have been provided.', config._meta_.minArgs
+, providedArgs);
+		printHelpMessage(config, helpTail, programName);
+		process.exit(-1);
+	}
+	if (config._meta_ &amp;&amp; config._meta_.maxArgs &amp;&amp; providedArgs &gt; config._meta_.maxArgs) {
+		console.log('Too many positional arguments (without option flag) provided. The maximum allowed is %d, but %d have been provided
+.', config._meta_.maxArgs, providedArgs);
+		printHelpMessage(config, helpTail, programName);
+		process.exit(-1);
+	}
+
+	// Apply default values
+	for (option in config) {
+		if (typeof config[option] === 'object' &amp;&amp; 'default' in config[option]) {
+			if ((!Array.isArray(config[option]['default']) &amp;&amp; parseInt(config[option].args, 10) &gt; 1) ||
+				(Array.isArray(config[option]['default']) &amp;&amp; config[option]['default'].length !== parseInt(config[option].args, 10))) {
+				throw new Error('Default value of an option must have the same length as specified by its "args" attribute');
+			}
+			cmdOptions[option] = cmdOptions[option] || config[option]['default'];
+		}
+
+	}
+
+	// A function to print help message manually
+	cmdOptions.printHelp = function () {
+		printHelpMessage(config, helpTail, programName);
+	};
+
+	return cmdOptions;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Read standard input, at once or line by line.
+* Make command-line questions
+
+### 2.1. Parse Unix-like command line options
+
+```javascript
+var stdio = require('stdio');
+var ops = stdio.<span class="apidocCodeKeywordSpan">getopt</span>({
+    'check': {key: 'c', args: 2, description: 'What this option means'},
+    'map': {key: 'm', description: 'Another description', mandatory: true},
+    'kaka': {key: 'k', args: 2, mandatory: true},
+    'ooo': {key: 'o'}
+});
+console.log(ops);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stdio.progressBar" id="apidoc.element.stdio.progressBar">
+        function <span class="apidocSignatureSpan">stdio.</span>progressBar
+        <span class="apidocSignatureSpan">(max, increment)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">progressBar = function (max, increment) {
+	var p = new ProgressBar(max, increment);
+	return p;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### 2.5. Show a progress bar
+
+The following code will create a progress bar of 100 pieces and increments of 10. These values do not affect how the progress bar
+ is shown, so a progress bar with 100 steps will be equals to a progress bar with 4 steps. Every call to `tick()` increments the
+ bar value. Remaining time is estimated dynamically:
+
+```javascript
+var stdio = require('./main.js');
+
+var pbar = stdio.<span class="apidocCodeKeywordSpan">progressBar</span>(100, 10);
+var i = setInterval(function () {
+	pbar.tick();
+}, 1000);
+pbar.onFinish(function () {
+	console.log('finish');
+	clearInterval(i);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stdio.question" id="apidoc.element.stdio.question">
+        function <span class="apidocSignatureSpan">stdio.</span>question
+        <span class="apidocSignatureSpan">(question, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function askQuestion(question, options, callback) {
+
+	// Options can be omited
+	if (typeof options === 'function') {
+		callback = options;
+		options = null;
+	}
+
+	// Throw possible errors
+	if (!question) {
+		throw new Error('Stdio prompt question is malformed. It must include at least a question text.');
+	}
+	if (options &amp;&amp; (!Array.isArray(options) || options.length &lt; 2)) {
+		throw new Error('Stdio prompt question is malformed. Provided options must be an array with two options at least.');
+	}
+
+	<span class="apidocCodeCommentSpan">/**
+	 * Prints the question
+	 **/
+</span>	var performQuestion = function () {
+		var str = question;
+		if (options) {
+			str += ' [' + options.join('/') + ']';
+		}
+		str += ': ';
+		process.stdout.write(str);
+	};
+
+	var tries = MAX_PROMPT_TRIES;
+
+	process.stdin.resume();
+
+	var listener = function (data) {
+
+		var response = data.toString().toLowerCase().trim();
+
+		if (options &amp;&amp; options.indexOf(response) === -1) {
+			console.log('Unexpected answer. %d retries left.', tries - 1);
+			tries--;
+			if (tries === 0) {
+				process.stdin.removeListener('data', listener);
+				process.stdin.pause();
+				callback('Retries spent');
+			} else {
+				performQuestion();
+			}
+			return;
+		}
+		process.stdin.removeListener('data', listener);
+		process.stdin.pause();
+		callback(false, response);
+	};
+
+	process.stdin.addListener('data', listener);
+	performQuestion();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+### 2.4. Show prompt questions and wait user's answer
+
+The following code will ask the user for some info and then print it.
+
+```javascript
+stdio.<span class="apidocCodeKeywordSpan">question</span>('What is your name?', function (err, name) {
+    stdio.question('How old are you?', function (err, age) {
+        stdio.question('Are you male or female?', ['male', 'female'], function (err, sex) {
+            console.log('Your name is "%s". You are a "%s" "%s" years old.', name, sex,
+age);
+        });
+    });
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stdio.read" id="apidoc.element.stdio.read">
+        function <span class="apidocSignatureSpan">stdio.</span>read
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function read(callback) {
+
+	if (!callback) {
+		throw new Error('no callback provided to readInput() call');
+	}
+
+	var inputdata = '';
+	process.stdin.resume();
+
+	var listener = function (text) {
+		if (!text) {
+			return;
+		}
+		inputdata += String(text);
+	};
+
+	process.stdin.on('data', listener);
+
+	process.stdin.on('end', function () {
+		process.stdin.removeListener('data', listener);
+		callback(inputdata);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### 2.2. Read standard input at once
+
+The following code will read the whole standard input at once and put it into `text` variable.
+
+```javascript
+var stdio = require('stdio');
+stdio.<span class="apidocCodeKeywordSpan">read</span>(function(text){
+    console.log(text);
+});
+```
+
+Obviously it is recommended only for small input streams, for instance a small file:
+
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stdio.readByLines" id="apidoc.element.stdio.readByLines">
+        function <span class="apidocSignatureSpan">stdio.</span>readByLines
+        <span class="apidocSignatureSpan">(lineProcessor, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readByLines(lineProcessor, callback) {
+
+	var index = 0;
+
+	var readline = require('readline');
+	var rl = readline.createInterface({
+		input: process.stdin,
+		output: process.stdout,
+		terminal: false
+	});
+	rl.on('line', function (line) {
+		lineProcessor(line, index);
+		index++;
+	});
+	if (callback) {
+		rl.on('close', callback);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### 2.3. Read standard input line by line
+
+The following code will execute dynamically a function over every line, when it is read from the standard input:
+
+```javascript
+var stdio = require('stdio');
+stdio.<span class="apidocCodeKeywordSpan">readByLines</span>(function lineHandler(line, index) {
+    // You can do whatever you want with every line
+    console.log('Line %d:', index, line);
+}, function (err) {
+    console.log('Finished');
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stdio.getopt" id="apidoc.module.stdio.getopt">module stdio.getopt</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stdio.getopt.getopt" id="apidoc.element.stdio.getopt.getopt">
+        function <span class="apidocSignatureSpan">stdio.</span>getopt
+        <span class="apidocSignatureSpan">(config, helpTail, argv, testing)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getopt(config, helpTail, argv, testing) {
+
+	argv = argv || process.argv;
+	config = config || {};
+	var programName = argv[1].split('/').pop();
+
+	// Help option cannot be overrided
+	if (config.help) {
+		throw new Error('"--help" option is reserved for the automatic help message. You cannot override it when calling getopt().');
+	}
+
+	var usedKeys = {};
+	var key, option;
+	for (option in config) {
+
+		key = config[option].key;
+
+		if (!key) {
+			continue;
+		}
+
+		// Short options name has to be unique
+		if (usedKeys[key]) {
+			throw new Error('Short key "' + key + '" is repeated in getopt() config. You cannot use the same key for two options.');
+		}
+
+		// Multiple option is not compatible with args count
+		if (config[option].multiple &amp;&amp; ('args' in config[option])) {
+			throw new Error('"args" count cannot be specified for options marked with "multiple" flag.');
+		}
+		usedKeys[key] = true;
+	}
+
+	// Print help message when executing with --help or -h
+	if (argv.indexOf('--help') !== -1) {
+		printHelpMessage(config, helpTail, programName);
+		process.exit(0);
+	}
+
+	// Build de options/arguments map
+	var cmdOptions = extractArgumentsMap(argv, config);
+
+	// Check every mandatory option is specified
+	for (option in config) {
+		if (option === '_meta_') {
+			continue;
+		}
+		if (config[option].mandatory &amp;&amp; !(option in cmdOptions)) {
+			if (testing) {
+				return null;
+			}
+			console.log('Missing "%s" argument.\nTry "--help" for more information.', option);
+			process.exit(-1);
+		}
+		if (!(option in cmdOptions)) {
+			continue;
+		}
+
+		// Check all required arguments have been specified for each option
+		var requiredArgumentsCount = config[option].args;
+		var providedArgumentsCount = cmdOptions[option] === true ? 0 : (Array.isArray(cmdOptions[option]) ? cmdOptions[option].length :
+1);
+		if (requiredArgumentsCount &gt; 1 &amp;&amp; providedArgumentsCount !== requiredArgumentsCount) {
+			if (testing) {
+				return null;
+			}
+			console.log('Option "--%s" requires %d arguments, but %d were provided. Try "--help" for more information.', option, requiredArgumentsCount
+, providedArgumentsCount);
+			printHelpMessage(config, helpTail, programName);
+			process.exit(-1);
+		}
+	}
+
+	// Check expected positional arguments are provided
+	var providedArgs = 0;
+	if (Array.isArray(cmdOptions.args) &amp;&amp; cmdOptions.args.length &gt; 0) {
+		providedArgs = cmdOptions.args.length;
+	}
+	if (config._meta_ &amp;&amp; config._meta_.args &amp;&amp; providedArgs !== config._meta_.args) {
+		console.log('%d positional arguments (without option flag) are required, but %d have been provided.', config._meta_.args, providedArgs
+);
+		printHelpMessage(config, helpTail, programName);
+		process.exit(-1);
+	}
+	if (config._meta_ &amp;&amp; config._meta_.minArgs &amp;&amp; providedArgs &lt; config._meta_.minArgs) {
+		console.log('At least %d positional arguments (without option flag) are required, but %d have been provided.', config._meta_.minArgs
+, providedArgs);
+		printHelpMessage(config, helpTail, programName);
+		process.exit(-1);
+	}
+	if (config._meta_ &amp;&amp; config._meta_.maxArgs &amp;&amp; providedArgs &gt; config._meta_.maxArgs) {
+		console.log('Too many positional arguments (without option flag) provided. The maximum allowed is %d, but %d have been provided
+.', config._meta_.maxArgs, providedArgs);
+		printHelpMessage(config, helpTail, programName);
+		process.exit(-1);
+	}
+
+	// Apply default values
+	for (option in config) {
+		if (typeof config[option] === 'object' &amp;&amp; 'default' in config[option]) {
+			if ((!Array.isArray(config[option]['default']) &amp;&amp; parseInt(config[option].args, 10) &gt; 1) ||
+				(Array.isArray(config[option]['default']) &amp;&amp; config[option]['default'].length !== parseInt(config[option].args, 10))) {
+				throw new Error('Default value of an option must have the same length as specified by its "args" attribute');
+			}
+			cmdOptions[option] = cmdOptions[option] || config[option]['default'];
+		}
+
+	}
+
+	// A function to print help message manually
+	cmdOptions.printHelp = function () {
+		printHelpMessage(config, helpTail, programName);
+	};
+
+	return cmdOptions;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Read standard input, at once or line by line.
+* Make command-line questions
+
+### 2.1. Parse Unix-like command line options
+
+```javascript
+var stdio = require('stdio');
+var ops = stdio.<span class="apidocCodeKeywordSpan">getopt</span>({
+    'check': {key: 'c', args: 2, description: 'What this option means'},
+    'map': {key: 'm', description: 'Another description', mandatory: true},
+    'kaka': {key: 'k', args: 2, mandatory: true},
+    'ooo': {key: 'o'}
+});
+console.log(ops);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stdio.getopt.preProcessArguments" id="apidoc.element.stdio.getopt.preProcessArguments">
+        function <span class="apidocSignatureSpan">stdio.getopt.</span>preProcessArguments
+        <span class="apidocSignatureSpan">(argv)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function preProcessArguments(argv) {
+
+	var processedArgs = [];
+	argv.forEach(function (arg) {
+
+		// If the argument is not an option, do not touch it
+		if (arg[0] !== '-' || isNumericalArgument(arg)) {
+			processedArgs.push(arg);
+			return;
+		}
+
+		// For collapsed options, like "-abc" instead of "-a -b -c"
+		if (arg[0] === '-' &amp;&amp; arg[1] !== '-' &amp;&amp; arg.length &gt; 2 &amp;&amp; arg.indexOf('=') === -1) {
+			processedArgs = processedArgs.concat(arg.slice(1).split('').map(function (x) {
+				return '-' + x;
+			}));
+			return;
+		}
+
+		// The general case, without collapsed options or assignments
+		if (arg[0] !== '-' || arg.indexOf('=') === -1) {
+			processedArgs.push(arg);
+			return;
+		}
+
+		// For assignment options, like "-b=2" instead of "-b 2"
+		arg = arg.match(/(.*?)=(.*)/);
+		processedArgs.push(arg[1]);
+		processedArgs.push(arg[2]);
+	});
+	return processedArgs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stdio.progress" id="apidoc.module.stdio.progress">module stdio.progress</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stdio.progress.progressBar" id="apidoc.element.stdio.progress.progressBar">
+        function <span class="apidocSignatureSpan">stdio.progress.</span>progressBar
+        <span class="apidocSignatureSpan">(max, increment)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">progressBar = function (max, increment) {
+	var p = new ProgressBar(max, increment);
+	return p;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### 2.5. Show a progress bar
+
+The following code will create a progress bar of 100 pieces and increments of 10. These values do not affect how the progress bar
+ is shown, so a progress bar with 100 steps will be equals to a progress bar with 4 steps. Every call to `tick()` increments the
+ bar value. Remaining time is estimated dynamically:
+
+```javascript
+var stdio = require('./main.js');
+
+var pbar = stdio.<span class="apidocCodeKeywordSpan">progressBar</span>(100, 10);
+var i = setInterval(function () {
+	pbar.tick();
+}, 1000);
+pbar.onFinish(function () {
+	console.log('finish');
+	clearInterval(i);
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stdio.question" id="apidoc.module.stdio.question">module stdio.question</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stdio.question.question" id="apidoc.element.stdio.question.question">
+        function <span class="apidocSignatureSpan">stdio.</span>question
+        <span class="apidocSignatureSpan">(question, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function askQuestion(question, options, callback) {
+
+	// Options can be omited
+	if (typeof options === 'function') {
+		callback = options;
+		options = null;
+	}
+
+	// Throw possible errors
+	if (!question) {
+		throw new Error('Stdio prompt question is malformed. It must include at least a question text.');
+	}
+	if (options &amp;&amp; (!Array.isArray(options) || options.length &lt; 2)) {
+		throw new Error('Stdio prompt question is malformed. Provided options must be an array with two options at least.');
+	}
+
+	<span class="apidocCodeCommentSpan">/**
+	 * Prints the question
+	 **/
+</span>	var performQuestion = function () {
+		var str = question;
+		if (options) {
+			str += ' [' + options.join('/') + ']';
+		}
+		str += ': ';
+		process.stdout.write(str);
+	};
+
+	var tries = MAX_PROMPT_TRIES;
+
+	process.stdin.resume();
+
+	var listener = function (data) {
+
+		var response = data.toString().toLowerCase().trim();
+
+		if (options &amp;&amp; options.indexOf(response) === -1) {
+			console.log('Unexpected answer. %d retries left.', tries - 1);
+			tries--;
+			if (tries === 0) {
+				process.stdin.removeListener('data', listener);
+				process.stdin.pause();
+				callback('Retries spent');
+			} else {
+				performQuestion();
+			}
+			return;
+		}
+		process.stdin.removeListener('data', listener);
+		process.stdin.pause();
+		callback(false, response);
+	};
+
+	process.stdin.addListener('data', listener);
+	performQuestion();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+### 2.4. Show prompt questions and wait user's answer
+
+The following code will ask the user for some info and then print it.
+
+```javascript
+stdio.<span class="apidocCodeKeywordSpan">question</span>('What is your name?', function (err, name) {
+    stdio.question('How old are you?', function (err, age) {
+        stdio.question('Are you male or female?', ['male', 'female'], function (err, sex) {
+            console.log('Your name is "%s". You are a "%s" "%s" years old.', name, sex,
+age);
+        });
+    });
+});
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stdio.reading" id="apidoc.module.stdio.reading">module stdio.reading</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stdio.reading.read" id="apidoc.element.stdio.reading.read">
+        function <span class="apidocSignatureSpan">stdio.reading.</span>read
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function read(callback) {
+
+	if (!callback) {
+		throw new Error('no callback provided to readInput() call');
+	}
+
+	var inputdata = '';
+	process.stdin.resume();
+
+	var listener = function (text) {
+		if (!text) {
+			return;
+		}
+		inputdata += String(text);
+	};
+
+	process.stdin.on('data', listener);
+
+	process.stdin.on('end', function () {
+		process.stdin.removeListener('data', listener);
+		callback(inputdata);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### 2.2. Read standard input at once
+
+The following code will read the whole standard input at once and put it into `text` variable.
+
+```javascript
+var stdio = require('stdio');
+stdio.<span class="apidocCodeKeywordSpan">read</span>(function(text){
+    console.log(text);
+});
+```
+
+Obviously it is recommended only for small input streams, for instance a small file:
+
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stdio.reading.readByLines" id="apidoc.element.stdio.reading.readByLines">
+        function <span class="apidocSignatureSpan">stdio.reading.</span>readByLines
+        <span class="apidocSignatureSpan">(lineProcessor, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readByLines(lineProcessor, callback) {
+
+	var index = 0;
+
+	var readline = require('readline');
+	var rl = readline.createInterface({
+		input: process.stdin,
+		output: process.stdout,
+		terminal: false
+	});
+	rl.on('line', function (line) {
+		lineProcessor(line, index);
+		index++;
+	});
+	if (callback) {
+		rl.on('close', callback);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### 2.3. Read standard input line by line
+
+The following code will execute dynamically a function over every line, when it is read from the standard input:
+
+```javascript
+var stdio = require('stdio');
+stdio.<span class="apidocCodeKeywordSpan">readByLines</span>(function lineHandler(line, index) {
+    // You can do whatever you want with every line
+    console.log('Line %d:', index, line);
+}, function (err) {
+    console.log('Finished');
+});
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stdio.util" id="apidoc.module.stdio.util">module stdio.util</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stdio.util.textDistance" id="apidoc.element.stdio.util.textDistance">
+        function <span class="apidocSignatureSpan">stdio.util.</span>textDistance
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">textDistance = function (a, b) {
+
+	if(a.length === 0) {
+		return b.length;
+	}
+	if(b.length === 0) {
+		return a.length;
+	}
+	
+	var matrix = [];
+	
+	// increment along the first column of each row
+	var i;
+	for(i = 0; i &lt;= b.length; i++){
+		matrix[i] = [i];
+	}
+	
+	// increment each column in the first row
+	var j;
+	for(j = 0; j &lt;= a.length; j++){
+		matrix[0][j] = j;
+	}
+	
+	// Fill in the rest of the matrix
+	for(i = 1; i &lt;= b.length; i++){
+		for(j = 1; j &lt;= a.length; j++){
+			if(b.charAt(i-1) == a.charAt(j-1)){
+				matrix[i][j] = matrix[i-1][j-1];
+			} else {
+				matrix[i][j] = Math.min(matrix[i-1][j-1] + 1, Math.min(matrix[i][j-1] + 1, matrix[i-1][j] + 1));
+			}
+		}
+	}
+	
+	return matrix[b.length][a.length];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	 * Find the nearest option of a provided one
+	 **/
+	function getNearestOption(option) {
+		var options = Object.keys(config);
+		var minDistance = Infinity;
+		var nearestWord = null;
+		options.forEach(function (o) {
+			var d = util.<span class="apidocCodeKeywordSpan">textDistance</span>(o, option);
+			if (d &lt; minDistance) {
+				minDistance = d;
+				nearestWord = o;
+			}
+		});
+		if (minDistance &lt; 3) {
+			return nearestWord;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
